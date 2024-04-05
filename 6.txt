@@ -1,0 +1,35 @@
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class SortStringsUserInput {
+    public static void main(String[] args) {
+        // Create a Scanner object to read user input
+        Scanner scanner = new Scanner(System.in);
+
+        // Ask the user for the number of strings
+        System.out.print("Enter the number of strings: ");
+        int n = scanner.nextInt();
+        scanner.nextLine(); // Consume newline left-over
+
+        // Create an array to store the strings
+        String[] strings = new String[n];
+
+        // Ask the user to input the strings
+        System.out.println("Enter the strings:");
+        for (int i = 0; i < n; i++) {
+            strings[i] = scanner.nextLine();
+        }
+
+        // Sorting the array of strings
+        Arrays.sort(strings);
+
+        // Displaying the sorted array of strings
+        System.out.println("Sorted strings:");
+        for (String str : strings) {
+            System.out.println(str);
+        }
+
+        // Close the scanner
+        scanner.close();
+    }
+}

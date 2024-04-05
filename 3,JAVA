@@ -1,0 +1,49 @@
+import java.util.Scanner;
+
+class Complex {
+    Double real;
+    Double img;
+
+    public Complex() {
+        real = 0.0;
+        img = 0.0;
+    }
+
+    public Complex(Double a, Double b) {
+        real = a;
+        img = b;
+    }
+
+    void display() {
+        System.out.println(real + "+" + img + "i");
+    }
+}
+
+public class ComplexTest {
+    public static Complex add(Complex ob1, Complex ob2) {
+        Complex c = new Complex();
+        c.real = ob1.real + ob2.real;
+        c.img = ob1.img + ob2.img;
+        return c;
+    }
+
+    public static void main(String arg[]) {
+        Scanner scan = new Scanner(System.in);
+        Double x, y;
+        System.out.println("Enter values for the first complex number:");
+        x = scan.nextDouble();
+        y = scan.nextDouble();
+        Complex c1 = new Complex(x, y);
+        System.out.println("Enter values for the second complex number:");
+        x = scan.nextDouble();
+        y = scan.nextDouble();
+        Complex c2 = new Complex(x, y);
+        Complex c = add(c1, c2);
+        System.out.println("First number:");
+        c1.display();
+        System.out.println("Second number:");
+        c2.display();
+        System.out.println("Result:");
+        c.display();
+    }
+}

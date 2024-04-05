@@ -1,0 +1,67 @@
+import java.util.Scanner;
+
+class Employee {
+    int eNo;
+    String eName;
+    double eSalary;
+
+    // Constructor to initialize Employee class data members
+    public Employee(int eNo, String eName, double eSalary) {
+        this.eNo = eNo;
+        this.eName = eName;
+        this.eSalary = eSalary;
+    }
+}
+
+public class EmployeeSearch {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Input the number of employees
+        System.out.print("Enter the number of employees: ");
+        int numEmployees = scanner.nextInt();
+
+        // Create an array of Employee objects
+        Employee[] employees = new Employee[numEmployees];
+
+        // Input information for each employee
+        for (int i = 0; i < numEmployees; i++) {
+            System.out.println("\nEnter details for Employee " + (i + 1) + ":");
+            System.out.print("Employee Number: ");
+            int eNo = scanner.nextInt();
+            scanner.nextLine(); // Consume newline
+            System.out.print("Employee Name: ");
+            String eName = scanner.nextLine();
+            System.out.print("Employee Salary: ");
+            double eSalary = scanner.nextDouble();
+
+            // Create an Employee object with the input information
+            employees[i] = new Employee(eNo, eName, eSalary);
+        }
+
+        // Input employee number to search
+        System.out.print("\nEnter the employee number to search: ");
+        int searchEno = scanner.nextInt();
+        boolean found = false;
+
+        // Search for the employee in the array
+        for (Employee emp : employees) {
+            if (emp.eNo == searchEno) {
+                System.out.println("\nEmployee found:");
+                System.out.println("Employee Number: " + emp.eNo);
+                System.out.println("Employee Name: " + emp.eName);
+                System.out.println("Employee Salary: " + emp.eSalary);
+                found = true;
+                break;
+            }
+        }
+
+        // If employee not found, display message
+        if (!found) {
+            System.out.println("\nEmployee with employee number " + searchEno + " not found.");
+        }
+
+        // Close the scanner
+        scanner.close();
+    }
+}

@@ -1,0 +1,65 @@
+import java.util.Scanner;
+
+class Matrix {
+    int r, c;
+    int[][] mat = new int[20][20];
+
+    void read() {
+        int i, j;
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Enter the rows and columns:");
+        r = scan.nextInt();
+        c = scan.nextInt();
+        System.out.println("Enter the elements:");
+        for (i = 0; i < r; i++) {
+            for (j = 0; j < c; j++) {
+                mat[i][j] = scan.nextInt();
+            }
+        }
+
+    }
+
+    void display() {
+        int i, j;
+        for (i = 0; i < r; i++) {
+            for (j = 0; j < c; j++) {
+                System.out.print(mat[i][j] + "\t");
+            }
+            System.out.println("");
+        }
+    }
+}
+
+public class MatrixTest {
+    public static Matrix add(Matrix a, Matrix b) {
+        Matrix m = new Matrix();
+        if (a.r != b.r || a.c != b.c) {
+            System.out.println("Matrix addition not possible");
+            return null;
+        }
+        m.r = a.r;
+        m.c = a.c;
+        for (int i = 0; i < a.r; i++) {
+            for (int j = 0; j < a.c; j++) {
+                m.mat[i][j] = a.mat[i][j] + b.mat[i][j];
+            }
+        }
+        return m;
+    }
+
+    public static void main(String arg[]) {
+        Matrix m1 = new Matrix();
+        Matrix m2 = new Matrix();
+        m1.read();
+        m2.read();
+        System.out.println("First Matrix:");
+        m1.display();
+        System.out.println("Second Matrix:");
+        m2.display();
+        Matrix result = add(m1, m2);
+        if (result != null) {
+            System.out.println("Resultant Matrix:");
+            result.display();
+        }
+    }
+}

@@ -1,0 +1,51 @@
+import java.util.Scanner;
+
+public class StringManipulation {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Input string from the user
+        System.out.print("Enter a string: ");
+        String inputString = scanner.nextLine();
+
+        // 1. Display the length of the string
+        int length = inputString.length();
+        System.out.println("Length of the string: " + length);
+
+        // 2. Convert the string to uppercase
+        String upperCaseString = inputString.toUpperCase();
+        System.out.println("Uppercase string: " + upperCaseString);
+
+        // 3. Convert the string to lowercase
+        String lowerCaseString = inputString.toLowerCase();
+        System.out.println("Lowercase string: " + lowerCaseString);
+
+        // 4. Display the first character of the string
+        char firstChar = inputString.charAt(0);
+        System.out.println("First character of the string: " + firstChar);
+
+        // 5. Display the last character of the string
+        char lastChar = inputString.charAt(length - 1);
+        System.out.println("Last character of the string: " + lastChar);
+
+        // 6. Check if the string contains a specific character
+        System.out.print("Enter a character to check if it exists in the string: ");
+        char ch = scanner.next().charAt(0);
+        if (inputString.indexOf(ch) != -1) {
+            System.out.println("The character '" + ch + "' exists in the string.");
+        } else {
+            System.out.println("The character '" + ch + "' does not exist in the string.");
+        }
+
+        // 7. Replace a specific character in the string
+        System.out.print("Enter the character to be replaced: ");
+        char oldChar = scanner.next().charAt(0);
+        System.out.print("Enter the character to replace '" + oldChar + "' with: ");
+        char newChar = scanner.next().charAt(0);
+        String replacedString = inputString.replace(oldChar, newChar);
+        System.out.println("String after replacement: " + replacedString);
+
+        // Close the scanner
+        scanner.close();
+    }
+}

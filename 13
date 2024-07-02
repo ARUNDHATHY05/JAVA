@@ -1,0 +1,110 @@
+/*Create a Graphics package that has classes and interfaces for figures Rectangle, Triangle, Square and Circle. Test the package by finding the area of these figures.*/
+
+// File: graphics/Figure.java
+package graphics;
+
+public interface Figure {
+    double area();
+}
+// File: graphics/Circle.java
+package graphics;
+
+public class Circle implements Figure {
+    private double radius;
+
+    public Circle(double radius) {
+        this.radius = radius;
+    }
+
+    @Override
+    public double area() {
+        return Math.PI * radius * radius;
+    }
+}
+// File: graphics/Rectangle.java
+package graphics;
+
+public class Rectangle implements Figure {
+    private double length;
+    private double width;
+
+    public Rectangle(double length, double width) {
+        this.length = length;
+        this.width = width;
+    }
+
+    @Override
+    public double area() {
+        return length * width;
+    }
+}
+// File: graphics/Triangle.java
+package graphics;
+
+public class Triangle implements Figure {
+    private double base;
+    private double height;
+
+    public Triangle(double base, double height) {
+        this.base = base;
+        this.height = height;
+    }
+
+    @Override
+    public double area() {
+        return 0.5 * base * height;
+    }
+}
+// File: graphics/Square.java
+package graphics;
+
+public class Square implements Figure {
+    private double side;
+
+    public Square(double side) {
+        this.side = side;
+    }
+
+    @Override
+    public double area() {
+        return side * side;
+    }
+}
+// File: Prgrm13.java
+import graphics.Circle;
+import graphics.Rectangle;
+import graphics.Triangle;
+import graphics.Square;
+import java.util.Scanner;
+
+class Prgrm13 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter the radius of the circle: ");
+        double radius = scanner.nextDouble();
+        Circle c1 = new Circle(radius);
+        System.out.println("Circle Area = " + c1.area());
+
+        System.out.print("Enter the length of the rectangle: ");
+        double length = scanner.nextDouble();
+        System.out.print("Enter the width of the rectangle: ");
+        double width = scanner.nextDouble();
+        Rectangle r1 = new Rectangle(length, width);
+        System.out.println("Rectangle Area = " + r1.area());
+
+        System.out.print("Enter the base of the triangle: ");
+        double base = scanner.nextDouble();
+        System.out.print("Enter the height of the triangle: ");
+        double height = scanner.nextDouble();
+        Triangle t1 = new Triangle(base, height);
+        System.out.println("Triangle Area = " + t1.area());
+
+        System.out.print("Enter the side of the square: ");
+        double side = scanner.nextDouble();
+        Square s1 = new Square(side);
+        System.out.println("Square Area = " + s1.area());
+
+        scanner.close();
+    }
+}
